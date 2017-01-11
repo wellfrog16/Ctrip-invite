@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <!--<link href="test.less" rel="stylesheet/less" />-->
+    <link href="test.min.css" rel="stylesheet" />
+
+</head>
+<body ng-app="HelloWorld">
+    测试下内容
+
+    <div class="precoin"></div>123123
+
+    <div class="aa"><a>哈哈哈哈</a></div>
+
+    <div class="liebiaoBox clearfix">
+        <ul class="liebiao">
+            <li>2222222222</li>
+            <li>2222222222</li>
+            <li>2222222222</li>
+            <li>2222222222</li>
+        </ul>
+    </div>
+
+    <div ng-controller="cc">
+        <p>{{hello.test}}，呵呵</p>
+    </div>
+
+    <div ng-controller="cc">
+        <ul ng-repeat="name in names">
+            <li>{{name}}</li>
+        </ul>
+    </div>
+
+    <kill></kill>
+
+    <input type="text" ng-model="xyj.text" />
+    <p>{{xyj.text}}，测试下</p>
+</body>
+</html>
+<script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+<script type="text/javascript">
+	var myModule = angular.module("HelloWorld", []);
+
+	myModule.controller('cc', ['$scope',
+		function sad122324sdfsf($scope) {
+			$scope.hello = {
+				test :'!!!你好啊啊12'
+			}
+
+			$scope.names = ['老王', '老李', '老张', '老刘'];
+		}
+	])
+
+
+	myModule.directive('kill', function () {
+		return {
+			restrict: 'E',
+			template: '<div>战斗战俘吊打</div>',
+			replace : true
+		}
+	})
+</script>
+<!--<script src="//cdn.bootcss.com/less.js/3.0.0-pre.3/less.min.js"></script>-->
