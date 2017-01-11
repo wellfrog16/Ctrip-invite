@@ -1,0 +1,115 @@
+﻿//@import 'hello.less';
+//@import (less) 'a.css';
+
+@oschina-back-color: #510000;
+@oschina-font-color: #510000;
+body {
+  //background-color: @oschina-back-color;
+  font-size: .85em;
+  font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+  margin: 0;
+  padding: 0;
+  color: @oschina-font-color;
+}
+
+.sanjiao {
+    width:0;
+    height:0;
+    overflow:hidden;
+
+    border-width:5px;
+    border-color: transparent  transparent transparent gold;
+    border-style:dotted;
+
+    display:inline-block;
+}
+
+.sanjiao(top, @w:10px, @c:#808080) {
+    border-width:@w;
+    border-color: @c transparent transparent transparent;
+    border-style:dotted dashed dashed dashed;
+}
+
+.sanjiao(right, @w:10px, @c:#808080) {
+    border-width:@w;
+    border-color: transparent @c transparent transparent;
+    border-style:dashed dotted dashed dashed;
+}
+
+.sanjiao(bottom, @w:10px, @c:#808080) {
+    border-width:@w;
+    border-color: transparent transparent @c transparent;
+    border-style:dashed dashed dotted dashed;
+}
+
+.sanjiao(left, @w:10px, @c:#808080) {
+    border-width:@w;
+    border-color: transparent transparent transparent @c;
+    border-style:dashed dashed dashed dotted;
+}
+
+.sanjiao(@_, @w:10px, @c:#808080) {
+    // 始终匹配
+    width:0;
+    height:0;
+    overflow:hidden;
+}
+
+.precoin {
+    .sanjiao(bottom) !important;
+}
+
+.tt(@a:1px, @b:solid, @c:red) {
+    border:@arguments;
+}
+
+.aa {
+    // 首行文本缩进
+    text-indent:10px;
+
+    .tt() !important;
+
+}
+
+a {
+    color:red;
+    width:~'稀里糊涂';
+    font:14px/50px '微软雅黑';
+
+
+    &:hover { color:blue;}
+}
+
+.liebiaoBox {
+    width:460px;
+    background-color:blueviolet;
+}
+
+.liebiao {
+    margin:0 -20px 0 0;
+    padding:0;
+
+    list-style:none;
+    background-color:blueviolet;
+
+    li {
+        width:100px;
+        margin-right:20px;
+        height:100px;
+        background-color:antiquewhite;
+        float:left;
+        padding:0;
+    }
+}
+
+// 内容用浮动，外层需要清除浮动方能出现高度, float外层用
+.clearfix {
+    zoom:1;
+}
+.clearfix:after {
+    content:'';
+    clear:both;
+    display:block;
+}
+
+// 用浮动display:inline解决ie双倍浮动问题
