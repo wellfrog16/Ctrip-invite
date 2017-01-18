@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="js/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+    <div id="clock">
+        <canvas width="300" height="300"></canvas>
+    </div>
+    <style>
+        #clock {width:310px; margin:100px auto;}
+        #clock canvas { border:1px solid black;}
+    </style>
+    <script>
+        var $ = jQuery;
+        var clock = $('#clock canvas')[0];
+        var ctx = clock.getContext('2d');
+
+        var w = ctx.canvas.width;
+        var h = ctx.canvas.height;
+        var r = w / 2;
+
+        // 比例，自适应缩放用
+        var rem = w / 300;
+
+        //alert(h)
+
+        function draw() {
+            ctx.translate(r, r);
+            ctx.beginPath();
+
+            // 弧度 = 弧长/半径。一个圆的弧度 2*PI*R / R
+            // 原点x, 原点y, 半径, 初始弧度（3点钟为0度）, 结束弧度, 顺逆
+            ctx.arc(0, 0, r - 20, 0, 2 * Math.PI, false);
+            
+            var gradient = ctx.createLinearGradient(0, 0, 170, 0);
+            gradient.addColorStop("0", "magenta");
+            gradient.addColorStop("0.5", "blue");
+            gradient.addColorStop("1.0", "red");
+
+            //ctx.strokeStyle = "red";
+            ctx.lineWidth = 8;
+            ctx.strokeStyle = "#ccc";
+            //ctx.strokeStyle = gradient;
+            ctx.stroke();
+
+
+            var hour = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2];
+            ctx.font = 18 * rem + 'px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            hour.forEach(function (num, index) {
+                var rad = 2 * Math.PI / 12 * index;
+
+                var x = Math.cos(rad) * (r - 45);
+                var y = Math.sin(rad) * (r - 45);
+                
+                ctx.fillText(num, x, y);
+            });
+
+            for (var i = 0; i < 60; i++) {
+                var rad = 2 * Math.PI / 60 * i;
+
+                // 求坐标
+                var x = Math.cos(rad) * (r - 30);
+                var y = Math.sin(rad) * (r - 30);
+
+                // 小圆点半径
+                if (i % 5 == 0) {
+                    r2 = 3;
+                    ctx.fillStyle = '#333'
+                }
+                else {
+                    r2 = 2;
+                    ctx.fillStyle = '#CCC'
+                }
+
+                ctx.beginPath();
+                ctx.arc(x, y, r2, 0, 2 * Math.PI, false);
+                ctx.fill();
+            }
+        }
+
+        function drawHour(num1, num2) {
+            ctx.save();
+            ctx.beginPath();
+            // 要先转角度
+            var rad = 2 * Math.PI / 12 * num1
+            var rad2 = 2 * Math.PI / 12 / 60 * num2
+            ctx.rotate(rad + rad2);
+            ctx.moveTo(0, 10);
+            ctx.lineTo(0, -r / 3);
+            ctx.strokeStyle = "#333";
+            ctx.lineCap = 'round';
+            ctx.lineWidth = 5;
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function drawMinute(num1, num2) {
+            ctx.save();
+            ctx.beginPath();
+            // 要先转角度
+            var rad = 2 * Math.PI / 60 * num1;
+            var rad2 = 2 * Math.PI / 60 / 60 * num2;
+            ctx.rotate(rad +  rad2);
+            ctx.moveTo(0, 15);
+            ctx.lineTo(0, -r / 2);
+            ctx.strokeStyle = "#999";
+            ctx.lineCap = 'round';
+            ctx.lineWidth = 4;
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function drawm(num) {
+            ctx.save();
+            ctx.beginPath();
+            // 要先转角度
+            var rad = 2 * Math.PI / 60 * num
+            ctx.rotate(rad);
+            ctx.moveTo(-2, 15);
+            ctx.lineTo(2, 15);
+            ctx.lineTo(1, -r / 1.5);
+            ctx.lineTo(-1, -r / 1.5);
+            ctx.fillStyle = 'red';
+            ctx.fill();
+            //ctx.moveTo(0, 15);
+            //ctx.lineTo(0, -r / 1.5);
+            //ctx.strokeStyle = "red";
+            //ctx.lineCap = 'round';
+            //ctx.lineWidth = 2;
+            //ctx.stroke();
+            ctx.restore();
+        }
+
+        function drawdot(num) {
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(0, 0, 2, 0, 2 * Math.PI, false);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+            ctx.restore();
+        }
+
+
+        function x() {
+            ctx.clearRect(0, 0, w, h);
+            ctx.save();
+
+            var oDate = new Date(); //实例一个时间对象；
+            //oDate.getFullYear();   //获取系统的年；
+            //oDate.getMonth() + 1;   //获取系统月份，由于月份是从0开始计算，所以要加1
+            //oDate.getDate(); // 获取系统日，
+            var hh = oDate.getHours(); //获取系统时，
+            var M = oDate.getMinutes(); //分
+            var s = oDate.getSeconds(); //秒
+
+            draw();
+            drawHour(hh, M);
+            drawMinute(M, s);
+            drawm(s);
+            drawdot();
+            ctx.restore();
+        }
+
+        setInterval(x, 1000);
+    </script>
+</body>
+</html>
