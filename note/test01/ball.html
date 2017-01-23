@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../js/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+    <div>
+        <canvas width="1024" height="768" id="canvas">当前浏览器不支持canvas</canvas>
+    </div>
+    <style>
+        div {
+            width: 1030px;
+            margin: 60px auto;
+        }
+
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script>
+        var ball = {
+            x : 500,
+            y : 100,
+            r : 20,
+            g: 0.02,
+            vx: -0.3,
+            vy: -2,
+            color : '#f09'
+        }
+
+        var canvas = $('canvas')[0];
+        //var c = document.getElementById('canvas');
+        var context = canvas.getContext('2d');
+
+        if (context) {
+
+            context.fillStyle = ball.color;
+
+            render(context);
+        }
+        else {
+            console.log('当前浏览器不支持canvas')
+        }
+
+        
+        function render() {
+            //console.log('1111')
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            context.beginPath();
+            context.arc(ball.x, ball.y, ball.r, 0, 2 * Math.PI);
+            context.fill();
+            context.closePath();
+        }
+
+        function update() {
+            ball.x += ball.vx;
+            ball.y += ball.vy;
+            ball.vy += ball.g;
+
+            if (ball.y >= 768 - ball.r) {
+
+                ball.y = 768 - ball.r;
+                ball.vy = -1 * ball.vy * 0.5;
+            }
+        }
+
+        setInterval(function () {
+            render();
+            update();
+        }, 5);
+    </script>
+
+</body>
+</html>

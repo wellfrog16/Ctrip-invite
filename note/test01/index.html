@@ -20,18 +20,86 @@
             border: 1px solid #ccc;
         }
     </style>
+    <script src="digit.js"></script>
     <script>
+        var w = 1300, h = 768, r = 8;
+
+        var marginTop = 50, marginLeft = 30;
+
+        const endTime = new Date(2017, 0, 20, 18, 0, 0);
+        var cSeconds = 0;
+       
+
         var canvas = $('canvas')[0];
         //var c = document.getElementById('canvas');
-        var ctx = canvas.getContext('2d');
+        var context = canvas.getContext('2d');
 
-        if (ctx) {
-
-
+        if (context) {
+            render(context);
         }
         else {
             console.log('当前浏览器不支持canvas')
         }
+
+        function render() {
+            var ctx = context;
+            ctx.clearRect(0, 0, 1024, 768);
+
+            //var oDate = new Date(); //实例一个时间对象；
+            //oDate.getFullYear();   //获取系统的年；
+            //oDate.getMonth() + 1;   //获取系统月份，由于月份是从0开始计算，所以要加1
+            //oDate.getDate(); // 获取系统日，
+            //var hours = oDate.getHours(); //获取系统时，
+            //var minutes = oDate.getMinutes(); //分
+            //var seconds = oDate.getSeconds(); //秒
+
+            
+
+            var hours = parseInt(cSeconds / 3600);
+            var minutes = parseInt((cSeconds - hours * 3600) / 60);
+            var seconds = cSeconds % 60;
+
+            //console.log(hours)
+            //console.log(minutes)
+            //console.log(seconds)
+
+            renderdigit(marginLeft, marginTop, parseInt(hours / 10), ctx);
+            renderdigit(marginLeft + 15 * (r + 1), marginTop, parseInt(hours % 10), ctx);
+            renderdigit(marginLeft + 30 * (r + 1), marginTop, 10, ctx);
+            renderdigit(marginLeft + 39 * (r + 1), marginTop, parseInt(minutes / 10), ctx);
+            renderdigit(marginLeft + 54 * (r + 1), marginTop, parseInt(minutes % 10), ctx);
+            renderdigit(marginLeft + 69 * (r + 1), marginTop, 10, ctx);
+            renderdigit(marginLeft + 78 * (r + 1), marginTop, parseInt(seconds / 10), ctx);
+            renderdigit(marginLeft + 93 * (r + 1), marginTop, parseInt(seconds % 10), ctx);
+        }
+
+        function renderdigit(x, y, num, ctx) {
+            ctx.fillStyle = '#bbb';
+
+            // 行循环
+            for (var i = 0; i < digit[num].length; i++) {
+                // 列循环
+                for (var j = 0; j < digit[num][i].length; j++) {
+                    // 绘制
+                    if (digit[num][i][j] == 1) {
+                        ctx.beginPath();
+                        ctx.arc(x + j * 2 * (r + 1) + (r + 1), y + i * 2 * (r + 1) + (r + 1), r, 0, 2 * Math.PI);
+                        ctx.closePath();
+
+                        ctx.fill();
+                    }
+                }
+            }
+        }
+
+        function update() {
+            cSeconds = Math.round((endTime.getTime() - new Date().getTime()) / 1000);
+        }
+
+        setInterval(function () {
+            render();
+            update();
+        }, 100);
 
     </script>
 </body>
