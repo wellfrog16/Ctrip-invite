@@ -1,0 +1,37 @@
+﻿@import 'common.less';
+
+@media screen and (orientation: portrait) {
+    /*竖屏 css*/
+    .block {
+        display: none;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    /*横屏 css*/
+    .block {
+        z-index: 9999;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        color: #fff;
+        text-align: center;
+        line-height: 100vh;
+    }
+}
+
+// ------------------------------------初始化开始-----------------------------------------
+html, body {
+    width:100%;
+    height:auto;
+
+    color:#fff;
+    font-family: 'Miscrosoft Yahei', '微软雅黑';
+    font-size:14px;
+
+    overflow:hidden;
+}
+
+
+// ------------------------------------初始化结束-----------------------------------------
