@@ -1,6 +1,6 @@
 // 剧本
 
-define(['jquery', 'resLoader', 'jqHammer', 'weixin'], function ($, resLoader, jqHammer, wx)
+define(['jquery', 'resLoader', 'jqHammer', 'weixin', 'swiper'], function ($, resLoader, jqHammer, wx, swiper)
 {
     var self = {}
 
@@ -11,7 +11,7 @@ define(['jquery', 'resLoader', 'jqHammer', 'weixin'], function ($, resLoader, jq
         document.body.scrollTop = 0;
 
         // 修复坐标
-        //self.fixPosition();
+        self.fixPosition();
 
         // 加载动画读取
         //self.loadAnim();
@@ -20,6 +20,87 @@ define(['jquery', 'resLoader', 'jqHammer', 'weixin'], function ($, resLoader, jq
         //$('.video').hammer().on("tap", function (e) {
         //    location.href = 'http://m.canon.com.cn/common/video/invoking/index.html?id=B3BF1A592FB707379C33DC5901307461';
         //});
+        var mySwiper = new swiper('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper); //隐藏动画元素 
+                swiperAnimate(swiper); //初始化完成开始动画
+            },
+            onSlideChangeEnd: function (swiper) {
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+
+            }
+        })
+
+
+
+        console.log('111');
+        var direction = 'right';
+        (function () {
+            var css = {
+                'left': '0%'
+            };
+            if (direction === 'right') {
+                direction = 'left';
+                css.left = '110%';
+            } else {
+                $('.bus').css({ 'left': '-40%' });
+                direction = 'left';
+                css.left = '110%';
+            }
+            $('.bus').animate(css, 10000, 'linear', arguments.callee);
+        })();
+
+
+        var direction = 'x';
+        (function () {
+            var css = {
+                'left': '-100%'
+            };
+            if (direction === 'x') {
+                direction = 'y';
+                css.left = '-100%';
+            } else {
+                $('.road').css({ 'left': '0%' });
+                direction = 'y';
+                css.left = '-100%';
+            }
+            $('.road').animate(css, 15000, 'linear', arguments.callee);
+        })();
+
+        var direction = 'x1';
+        (function () {
+            var css = {
+                'left': '-100%'
+            };
+            if (direction === 'x1') {
+                direction = 'y1';
+                css.left = '-100%';
+            } else {
+                $('.building2').css({ 'left': '0%' });
+                direction = 'y1';
+                css.left = '-100%';
+            }
+            $('.building2').animate(css, 20000, 'linear', arguments.callee);
+        })();
+
+        var direction = 'x2';
+        (function () {
+            var css = {
+                'left': '-100%'
+            };
+            if (direction === 'x2') {
+                direction = 'y2';
+                css.left = '-100%';
+            } else {
+                $('.building1').css({ 'left': '0%' });
+                direction = 'y2';
+                css.left = '-100%';
+            }
+            $('.building1').animate(css, 25000, 'linear', arguments.callee);
+        })();
+
     }
 
     // 坐标修正
@@ -34,7 +115,8 @@ define(['jquery', 'resLoader', 'jqHammer', 'weixin'], function ($, resLoader, jq
 
             o.css({
                 'width': scaleNum * parseInt(o.css('width')),
-                'height': scaleNum * parseInt(o.css('height'))
+                'height': scaleNum * parseInt(o.css('height')),
+                'line-height': scaleNum * parseInt(o.css('line-height')) + 'px'
             });
 
             switch (mode) {
