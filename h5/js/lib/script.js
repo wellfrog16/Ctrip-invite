@@ -14,25 +14,19 @@ define(['jquery', 'resLoader', 'jqHammer', 'weixin', 'swiper'], function ($, res
         self.fixPosition();
 
         // 加载动画读取
-        //self.loadAnim();
+        self.loadAnim();
+
+        // 绑定事件
+        self.bindAction();
 
 
         //$('.video').hammer().on("tap", function (e) {
         //    location.href = 'http://m.canon.com.cn/common/video/invoking/index.html?id=B3BF1A592FB707379C33DC5901307461';
         //});
-        var mySwiper = new swiper('.swiper-container', {
-            direction: 'horizontal',
-            loop: true,
-            onInit: function (swiper) {
-                swiperAnimateCache(swiper); //隐藏动画元素 
-                swiperAnimate(swiper); //初始化完成开始动画
-            },
-            onSlideChangeEnd: function (swiper) {
-                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
 
-            }
-        })
-
+        $('#bgMusic').hammer().on("tap", function (e) {
+            self.music();
+        });
 
 
         console.log('111');
@@ -101,6 +95,35 @@ define(['jquery', 'resLoader', 'jqHammer', 'weixin', 'swiper'], function ($, res
             $('.building1').animate(css, 25000, 'linear', arguments.callee);
         })();
 
+        var direction = 'top';
+        (function () {
+            var css = {
+                'top': '17%'
+            };
+            if (direction === 'top') {
+                direction = 'bottom';
+                css.top = '20%';
+            } else {
+                direction = 'top';
+            }
+            $('.scene02 .s01').animate(css, 2000, 'swing', arguments.callee);
+        })();
+
+
+        var direction = 'top1';
+        (function () {
+            var css = {
+                'top': '-5%'
+            };
+            if (direction === 'top1') {
+                direction = 'bottom1';
+                css.top = '0%';
+            } else {
+                direction = 'top1';
+            }
+            $('.bg2').animate(css, 4000, 'swing', arguments.callee);
+        })();
+
     }
 
     // 坐标修正
@@ -155,29 +178,27 @@ define(['jquery', 'resLoader', 'jqHammer', 'weixin', 'swiper'], function ($, res
 
 
     // loading动画
-    self.loadTimer = null;
+    // self.loadTimer = null;
     self.loadAnim = function () {
+
         new resLoader({
             resources: [
-                'img/main/bg.jpg',
-                'img/main/loading.png',
-
-                'img/canon/canon_logo.jpg',
-                'img/canon/canon_sub_logo.jpg'
+                'img/main/loading.png'
             ],
             onStart: function (total) { },
             onProgress: function (current, total) { },
             onComplete: function (total) {
-                var x = 0;
-                $('.loading').show();
+                //var x = 0;
+                //$('.loading').show();
 
                 // 开始加载资源
                 self.load();
 
-                loadTimer = setInterval(function () {
-                    $('.loading').css('background-position-x', x++ * (100 / 6) + '%');
-                    if (x > 7) { x = 0; }
-                }, 150);
+
+                //loadTimer = setInterval(function () {
+                //    $('.loading').css('background-position-x', x++ * (100 / 6) + '%');
+                //    if (x > 7) { x = 0; }
+                //}, 150);
             }
         }).start();
     }
@@ -188,54 +209,194 @@ define(['jquery', 'resLoader', 'jqHammer', 'weixin', 'swiper'], function ($, res
         // app资源加载
         new resLoader({
             resources: [
-                'img/frames/cover1.jpg',
-                'img/frames/frame2.jpg',
-                'img/frames/frame3.jpg',
-                'img/frames/frame4.jpg',
+                'audio/music.mp3',
 
-                'img/items/copy1.png',
-                'img/items/copy2.png',
-                'img/items/icon01.png',
-                'img/items/icon02.png',
-                'img/items/icon03.png',
-                'img/items/icon04.png',
-                'img/items/icon05.png',
-                'img/items/icon06.png',
-                'img/items/icon07.png',
-                'img/items/icon08.png',
-                'img/items/icon09.png',
-                'img/items/icon10.png',
-                'img/items/icon11.png',
-                'img/items/icon12.png',
-                'img/items/icon13.png',
-                'img/items/icon14.png',
-                'img/items/icon15.png',
-                'img/items/icon16.png',
-                'img/items/icon17.png',
-                'img/items/icon18.png',
-                'img/items/icon19.png',
-                'img/items/title.png',
-                'img/items/video.png'
+                'img/main/bg.jpg',
+                'img/main/logo.png',
+                'img/main/music.png',
 
+                'img/scene-guest/float.png',
+                'img/scene-guest/guest1.png',
+                'img/scene-guest/guest2.png',
+                'img/scene-guest/guest3.png',
+                'img/scene-guest/like.png',
+                'img/scene-guest/title1.png',
+                'img/scene-guest/title2.png',
+                'img/scene-guest/title3.png',
+                'img/scene-guest/title4.png',
+
+                'img/scene01/circle.png',
+                'img/scene01/finger.png',
+                'img/scene01/float.png',
+                'img/scene01/info.png',
+                'img/scene01/slogan.png',
+
+                'img/scene02/circle.png',
+                'img/scene02/float.png',
+                'img/scene02/info.png',
+                'img/scene02/play.png',
+
+                'img/scene03/content.png',
+                'img/scene03/float.png',
+                'img/scene03/list.png',
+                'img/scene03/setting.png',
+                'img/scene03/title.png',
+
+                'img/scene04/circle.png',
+                'img/scene04/float.png',
+                'img/scene04/play.png',
+                'img/scene04/title.png',
+
+                'img/scene05/content.png',
+                'img/scene05/float.png',
+                'img/scene05/medal.png',
+                'img/scene05/signup1.png',
+                'img/scene05/signup2.png',
+                'img/scene05/submit1.png',
+                'img/scene05/submit2.png',
+                'img/scene05/title1.png',
+                'img/scene05/title2.png',
+
+                'img/scene06/float.png',
+                'img/scene06/result.png'
             ],
             onStart: function (total) { },
             onProgress: function (current, total) {
-                //var percent = parseInt(current / total * 100);
-                //$('.loading span').text(percent + '%');
+                var percent = parseInt(current / total * 100);
+                $('.loading .percent').text(percent + '%');
             },
             onComplete: function (total) {
-                $('.loading').fadeOut(1000, function () {
-                    clearInterval(self.loadTimer);
-                    // 打开垂直滚动条
-                    //$('body').css('overflow-y', 'initial');
-                    $('html').css('overflow-y', 'initial');
-
-                    window.ontouchstart = null;
-
-                    $('.title, .item01, .item02, .item03, .item04, .item05, .copy1, .frame1').fadeIn(1200, function () { $('.jsfix div:not(.loading, .item11)').show(); });
-                });
+                self.initSwiper();
             }
         }).start();
+    }
+
+
+    self.initSwiper = function () {
+        var mySwiper = new swiper('.swiper-container', {
+            direction: 'horizontal',
+            loop: false,
+            onInit: function (swiper) {
+                swiperAnimateCache(swiper); //隐藏动画元素 
+                $('.loading').hide();
+                swiperAnimate(swiper); //初始化完成开始动画
+
+                //swiper.slideTo(3);
+            },
+            onSlideChangeEnd: function (swiper) {
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+
+            },
+            onSlideChangeStart: function (swiper) {
+                // 非第一页时隐藏手滑动作
+                if (swiper.activeIndex != 0) { $('#finger').removeClass('hand').hide(); }
+            }
+        })
+
+        $('.scene01 .s3').on('webkitAnimationEnd', function () {
+            $('#finger').addClass('hand').show();
+        });
+
+        $('.scene02 .s2').hammer().on("tap", function (e) {
+            location.href = 'https://v.qq.com/x/page/m03737rnjqw.html';
+        });
+
+        //https://v.qq.com/x/page/m03737rnjqw.html
+
+    }
+
+
+    self.bindAction = function () {
+        self.enroll();
+    }
+
+
+    self.music = function () {
+
+    }
+
+
+    self.enroll = function () {
+        $('.scene05 .s3 img').hammer().on("tap", function (e) {
+            $('.btn-bgm').hide();
+            $('#guest').show();
+        });
+
+        $('#guest .close').hammer().on("tap", function (e) {
+            $('.btn-bgm').show();
+            $('#guest').hide();
+        });
+
+        $('.scene05 .s4 img').hammer().on("tap", function (e) {
+            $('.btn-bgm').hide();
+            $('#anyone').show();
+        });
+
+        $('#anyone .close').hammer().on("tap", function (e) {
+            $('.btn-bgm').show();
+            $('#anyone').hide();
+        });
+
+
+        $('#guest .submit').hammer().on("tap", function (e) {
+
+            if (!checkForm('guest')) { return false; }
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "http://www.tron-m.com/ctrip/api/saveRecord.do",
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/x-www-form-urlencoded",
+                    "cache-control": "no-cache"
+                },
+                "data": {
+                    "name": $('#name').val(),
+                    "telNo": $('#telNo').val(),
+                    "weibo": $('#weibo').val(),
+                    "type": "1"
+                }
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+
+        });
+
+
+        $('#anyone .submit').hammer().on("tap", function (e) {
+
+            if (!checkForm('guest')) { return false; }
+
+            var settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "http://www.tron-m.com/ctrip/api/saveRecord.do",
+                "method": "POST",
+                "headers": {
+                    "content-type": "application/x-www-form-urlencoded",
+                    "cache-control": "no-cache"
+                },
+                "data": {
+                    "name": $('#name').val(),
+                    "telNo": $('#telNo').val(),
+                    "weibo": $('#weibo').val(),
+                    "type": "1"
+                }
+            }
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
+            });
+
+        });
+
+
+        function checkForm() {
+            return true;
+        }
     }
 
 

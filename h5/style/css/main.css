@@ -2,13 +2,19 @@
 body,
 ul,
 ol,
-li {
+li,
+dl,
+dt,
+dd {
   padding: 0;
   margin: 0;
 }
 ul,
 ol {
   list-style: none;
+}
+* {
+  box-sizing: border-box;
 }
 @media screen and (orientation: portrait) {
   /*竖屏 css*/
@@ -38,12 +44,41 @@ body {
   font-size: 14px;
   overflow: hidden;
 }
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 110;
+  background: #333;
+  color: white;
+  text-align: center;
+}
+.loading .bg {
+  background: url(../../img/main/loading.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 80px;
+  height: 80px;
+  margin: 40vh auto;
+  line-height: 100px;
+  animation: myrotate 2s linear 0s infinite normal;
+}
+.loading .percent {
+  position: absolute;
+  top: 40vh;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
 .swiper-container {
   width: 100%;
   height: 100%;
   background-image: url('../../img/main/bg.jpg');
   background-size: cover;
   background-position: center;
+}
+audio {
+  display: none;
 }
 .btn-bgm {
   position: absolute;
@@ -53,7 +88,7 @@ body {
   height: 30px;
   background-size: 100%;
   background-image: url('../../img/main/music.png');
-  z-index: 1;
+  z-index: 100;
   animation: myrotate 5s linear 0s infinite normal;
 }
 .btn-bgm-pause {
@@ -77,6 +112,17 @@ body {
     transform: rotate(-360deg);
   }
 }
+.logo {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  line-height: 38px;
+}
+.logo img {
+  width: 50%;
+}
 .dynamic {
   width: 100%;
   height: 100%;
@@ -87,7 +133,7 @@ body {
 .dynamic .building1 {
   width: 300%;
   height: 30vh;
-  bottom: 0;
+  bottom: 10px;
   left: 0%;
   background-image: url('../../img/building_2.png');
   background-size: 33.33%;
@@ -97,7 +143,7 @@ body {
 .dynamic .building2 {
   width: 300%;
   height: 30vh;
-  bottom: 0;
+  bottom: 15px;
   left: 0%;
   background-image: url('../../img/building.png');
   background-size: 33.33%;
@@ -121,109 +167,281 @@ body {
 .dynamic .bus img {
   width: 100%;
 }
-.scene01 .bg1 {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url(../../img/bg2.png);
+.scene01 {
+  background-image: url(../../img/scene01/float.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
 }
-.scene01 .bg2 {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url(../../img/float1.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
-}
-.scene01 .s01 {
-  width: 672px;
-  height: 664px;
+.scene01 .s1 {
+  width: 640px;
+  height: 648px;
   top: 200px;
   left: 0px;
   position: absolute;
-  background-image: url(../../img/circle.png);
+  background-image: url(../../img/scene01/circle.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
 }
-.scene01 .s02 {
+.scene01 .s2 {
   width: 466px;
   height: 350px;
   top: 125px;
   left: 100px;
   position: absolute;
-  background-image: url(../../img/slogan.png);
+  background-image: url(../../img/scene01/slogan.png);
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
 }
-.scene01 .s03 {
+.scene01 .s3 {
   width: 629px;
-  height: 232px;
+  height: 261px;
   top: 565px;
-  left: 10px;
+  left: 5px;
   position: absolute;
-  background-image: url(../../img/title.png);
+  background-image: url(../../img/scene01/info.png);
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  background-size: cover;
+  z-index: 10;
 }
-.bg1 {
+.scene01 .hand {
+  position: absolute;
+  width: 56px;
+  height: 81px;
+  background: url('../../img/scene01/finger.png') no-repeat;
+  background-size: cover;
+  left: 30px;
+  top: 800px;
+  animation: slidehand 1.5s infinite;
+  display: none;
+}
+@keyframes slidehand {
+  from {
+    left: 80vw;
+    opacity: 0.5;
+  }
+  to {
+    left: 10vw;
+    opacity: 1;
+  }
+}
+.scene02 {
+  background-image: url(../../img/scene02/float.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.scene02 > div {
+  text-align: center;
+}
+.scene02 .s1 {
+  margin-top: 15vh;
+}
+.scene02 .s1 img {
+  width: 70%;
+}
+.scene02 .s2 {
+  margin-top: -4vh;
+}
+.scene02 .s2 img {
+  width: 80%;
+}
+.scene02 .s3 img {
+  width: 40%;
+}
+.scene03 {
+  background-image: url(../../img/scene03/float.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.scene03 > div {
+  text-align: center;
+}
+.scene03 .s1 {
+  margin-top: 15vh;
+}
+.scene03 .s1 img {
+  width: 80%;
+}
+.scene03 .s2 {
+  margin-top: 2vh;
+}
+.scene03 .s2 img {
+  width: 80%;
+}
+.scene03 .s3 {
+  margin-top: 2vh;
+}
+.scene03 .s3 img {
+  width: 50%;
+}
+.scene03 .s4 {
+  margin-top: 1vh;
+}
+.scene03 .s4 img {
+  width: 80%;
+}
+.scene-guest {
+  background-image: url(../../img/scene-guest/float.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.scene-guest > div {
+  text-align: center;
+}
+.scene-guest .s1 {
+  position: relative;
+  margin-top: 10vh;
+  z-index: 10;
+}
+.scene-guest .s1 img {
+  width: 60%;
+}
+.scene-guest .s2 {
+  margin-top: -5vh;
+}
+.scene-guest .s2 img {
+  width: 80%;
+}
+.scene-guest .s3 {
+  margin-top: 0vh;
+  position: relative;
+}
+.scene-guest .s3 img {
+  width: 50%;
+}
+.scene-guest .s3 span {
   width: 100%;
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url(../../img/bg2.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-}
-.bg2 {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url(../../img/float2.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
-}
-.s01 {
-  width: 519px;
-  height: 518px;
-  top: 200px;
-  left: 56px;
-  position: absolute;
-  background-image: url(../../img/guest1.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-.s02 {
-  width: 195px;
-  height: 52px;
-  top: 730px;
-  left: 220px;
-  position: absolute;
-  background-image: url(../../img/like.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  text-align: right;
-}
-.s02 span {
+  line-height: 6.5vh;
   color: aqua;
-  line-height: 52px;
   font-size: 1.2em;
-  margin-right: 10vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+.scene04 {
+  background-image: url(../../img/scene04/float.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.scene04 > div {
+  text-align: center;
+}
+.scene04 .s1 {
+  margin-top: 15vh;
+}
+.scene04 .s1 img {
+  width: 80%;
+}
+.scene04 .s2 {
+  margin-top: -3vh;
+}
+.scene04 .s2 img {
+  width: 95%;
+}
+.scene04 .s3 {
+  margin-top: -2vh;
+}
+.scene04 .s3 img {
+  width: 50%;
+}
+.scene05 {
+  background-image: url(../../img/scene05/float.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.scene05 > div {
+  text-align: center;
+}
+.scene05 .s1 {
+  margin-top: 5vh;
+  position: relative;
+  z-index: 1;
+}
+.scene05 .s1 img {
+  width: 80%;
+}
+.scene05 .s2 {
+  margin-top: -4.5vh;
+}
+.scene05 .s2 img {
+  width: 80%;
+}
+.scene05 .s3,
+.scene05 .s4 {
+  margin-top: 2vh;
+}
+.scene05 .s3 img,
+.scene05 .s4 img {
+  width: 50%;
+}
+.scene05 .enroll {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #191919;
+  z-index: 2;
+  display: none;
+}
+.scene05 .enroll .close {
+  float: right;
+  font-size: 30px;
+  margin-right: 10px;
+}
+.scene05 .enroll img.title {
+  clear: both;
+  display: block;
+  width: 60vw;
+  margin: 10vh auto 5vh auto;
+}
+.scene05 .enroll dl {
+  padding: 0 12vw;
+}
+.scene05 .enroll dl dt {
+  font-size: 16px;
+}
+.scene05 .enroll dl dt::after {
+  content: '：';
+}
+.scene05 .enroll dl dt span {
+  float: right;
+}
+.scene05 .enroll dl dd {
+  height: 30px;
+  margin: 8px 0 30px 0;
+}
+.scene05 .enroll dl dd input {
+  width: 100%;
+  height: 100%;
+  background: #191919;
+  padding: 0 5px;
+  color: white;
+}
+.scene05 .enroll img.submit {
+  display: block;
+  width: 50vw;
+  margin: 5vh auto 1vh auto;
+}
+.scene05 .enroll .tips {
+  text-align: center;
+}
+.scene05 #guest input {
+  border: 1px solid #5c24e9;
+}
+.scene05 #anyone input {
+  border: 1px solid #f42afa;
+}
+.scene06 {
+  background-image: url(../../img/scene06/float.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.scene06 .s1 {
+  margin-top: 20vh;
+}
+.scene06 .s1 img {
+  width: 100%;
 }

@@ -37,6 +37,40 @@ html, body {
 // ------------------------------------初始化结束-----------------------------------------
 
 
+// ------------------------------------loading开始-----------------------------------------
+.loading {
+    .percent-box();
+
+    position:absolute;
+    z-index:110;
+    background: #333;
+
+    color:white;
+    text-align:center;
+
+    .bg {
+        background:url(../../img/main/loading.png);
+        background-repeat:no-repeat;
+        background-size:contain;
+        width:80px;
+        height:80px;
+        margin:40vh auto;
+        line-height:100px;
+        animation: myrotate 2s linear 0s infinite normal;
+    }
+
+    .percent {
+        position:absolute;
+        top:40vh;
+        width:100%;
+
+        text-align:center;
+        margin-top:30px;
+    }
+}
+// ------------------------------------loading结束-----------------------------------------
+
+
 // ------------------------------------框架开始-----------------------------------------
 .swiper-container {
     .percent-box();
@@ -44,6 +78,11 @@ html, body {
     background-image:url('../../img/main/bg.jpg');
     background-size:cover;
     background-position:center;
+}
+
+
+audio {
+    display:none;
 }
 
 
@@ -56,7 +95,7 @@ html, body {
     height:30px;
     background-size: 100%;
     background-image: url('../../img/main/music.png');
-    z-index: 1;
+    z-index: 100;
     animation: myrotate 5s linear 0s infinite normal;
 }
 
@@ -73,6 +112,19 @@ html, body {
     100% { transform:rotate(-360deg);}
 }
 
+// logo
+.logo {
+    position:absolute; 
+    top:18px;
+    left:0;
+    width:100%;
+    text-align:center;
+    line-height:38px;
+
+    img { width:50%; }
+}
+
+// 底部视差
 .dynamic {
     .percent-box();
 
@@ -83,7 +135,7 @@ html, body {
     .building1 {
         width:300%;
         height:30vh;
-        bottom:0;
+        bottom:10px;
 
         left:0%;
 
@@ -96,7 +148,7 @@ html, body {
     .building2 {
         width:300%;
         height:30vh;
-        bottom:0;
+        bottom:15px;
 
         left:0%;
 
@@ -131,122 +183,315 @@ html, body {
 
 // ------------------------------------场景1开始-----------------------------------------
 .scene01 {
-    .bg1 {
-        .percent-box();
+    background-image:url(../../img/scene01/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
 
-        position:absolute;
-        top:0;
-        left:0;
-        background-image:url(../../img/bg2.png);
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position:center center;
-    }
-
-    .bg2 {
-        .percent-box();
-
-        position:absolute;
-        top:0;
-        left:0;
-        background-image:url(../../img/float1.png);
-        background-repeat:no-repeat;
-        background-size:contain;
-        background-position:center center;
-    }
-
-    .s01 {
-        width:672px;
-        height:664px;
+    .s1 {
+        width:640px;
+        height:648px;
         top:200px;
         left:0px;
         position:absolute;
-        background-image:url(../../img/circle.png);
+        background-image:url(../../img/scene01/circle.png);
         background-repeat:no-repeat;
         background-size:cover;
-        background-position:center;
     }
 
-    .s02 {
+    .s2 {
         width:466px;
         height:350px;
         top:125px;
         left:100px;
         position:absolute;
-        background-image:url(../../img/slogan.png);
+        background-image:url(../../img/scene01/slogan.png);
         background-repeat:no-repeat;
-        background-size:contain;
-        background-position:center;
+        background-size:cover;
     }
 
-    .s03 {
+    .s3 {
         width:629px;
-        height:232px;
+        height:261px;
         top:565px;
-        left:10px;
+        left:5px;
         position:absolute;
-        background-image:url(../../img/title.png);
+        background-image:url(../../img/scene01/info.png);
         background-repeat:no-repeat;
-        background-size:contain;
-        background-position:center;
+        background-size:cover;
+
+        z-index:10;
+    }
+
+    .hand {
+      position: absolute;
+      width: 56px;
+      height: 81px;
+      background: url('../../img/scene01/finger.png') no-repeat;
+      background-size:cover;
+      left: 30px;
+      top: 800px;
+      animation: slidehand 1.5s infinite;
+      display:none;
+    }
+
+
+}
+
+@keyframes slidehand {
+    from {
+        left: 80vw;
+        opacity: 0.5;
+    }
+    to {
+        left: 10vw;
+        opacity: 1;
     }
 }
 // ------------------------------------场景1结束-----------------------------------------
 
 // ------------------------------------场景2开始-----------------------------------------
-    .bg1 {
-        .percent-box();
+.scene02 {
+    background-image:url(../../img/scene02/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
 
-        position:absolute;
-        top:0;
-        left:0;
-        background-image:url(../../img/bg2.png);
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position:center center;
+    >div {
+        text-align:center;
     }
 
-    .bg2 {
-        .percent-box();
-
-        position:absolute;
-        top:0;
-        left:0;
-        background-image:url(../../img/float2.png);
-        background-repeat:no-repeat;
-        background-size:contain;
-        background-position:center center;
+    .s1 {
+        margin-top:15vh;
+        img {width:70%;}
     }
 
-    .s01 {
-        width:519px;
-        height:518px;
-        top:200px;
-        left:56px;
-        position:absolute;
-        background-image:url(../../img/guest1.png);
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position:center;
+    .s2 {
+        margin-top:-4vh;
+        img {width:80%;}
     }
 
-    .s02 {
-        width:195px;
-        height:52px;
-        top:730px;
-        left:220px;
-        position:absolute;
-        background-image:url(../../img/like.png);
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position:center;
+    .s3 {
+        img {width:40%;}
+    }
+}
+// ------------------------------------场景2结束-----------------------------------------
 
-        text-align:right;
+// ------------------------------------场景3开始-----------------------------------------
+.scene03 {
+    background-image:url(../../img/scene03/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        margin-top:15vh;
+        img {width:80%;}
+    }
+
+    .s2 {
+        margin-top:2vh;
+        img {width:80%;}
+    }
+
+    .s3 {
+        margin-top:2vh;
+        img {width:50%;}
+    }
+
+    .s4 {
+        margin-top:1vh;
+        img {width:80%;}
+    }
+}
+// ------------------------------------场景3结束-----------------------------------------
+
+
+// ------------------------------------场景旅行家开始-----------------------------------------
+.scene-guest {
+    background-image:url(../../img/scene-guest/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        position:relative;
+        margin-top:10vh;
+        z-index:10;
+        img {width:60%;}
+    }
+
+    .s2 {
+        margin-top:-5vh;
+        img {width:80%;}
+    }
+
+    .s3 {
+        margin-top:0vh;
+        position:relative;
+
+        img {width:50%;}
+
         span {
+            width:100%;
+            height:100%;
+            line-height:6.5vh;
+
             color:aqua;
-            line-height:52px;
             font-size:1.2em;
-            margin-right:10vw;
+
+            position:absolute;
+            left:0;
+            top:0;
+
+            text-align:center;
         }
     }
-// ------------------------------------场景2结束-----------------------------------------
+}
+// ------------------------------------场景旅行家结束-----------------------------------------
+
+// ------------------------------------场景4开始-----------------------------------------
+.scene04 {
+    background-image:url(../../img/scene04/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        margin-top:15vh;
+        img {width:80%;}
+    }
+
+    .s2 {
+        margin-top:-3vh;
+        img {width:95%;}
+    }
+
+    .s3 {
+        margin-top:-2vh;
+        img {width:50%;}
+    }
+}
+// ------------------------------------场景4结束-----------------------------------------
+
+// ------------------------------------场景5开始-----------------------------------------
+.scene05 {
+    background-image:url(../../img/scene05/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        margin-top:5vh;
+        position:relative;
+        z-index:1;
+
+        img {width:80%;}
+    }
+
+    .s2 {
+        margin-top:-4.5vh;
+        img {width:80%;}
+    }
+
+    .s3, .s4 {
+        margin-top:2vh;
+        img {width:50%;}
+    }
+
+    .enroll {
+        .percent-box();
+        text-align:left;
+
+        position:absolute;
+        top:0;
+        left:0;
+        background:#191919;
+        z-index:2;
+        display:none;
+
+        .close {
+            float:right;
+            font-size:30px;
+            margin-right:10px;
+        }
+
+        img.title {
+            clear:both;
+            display:block;
+            width:60vw;
+            margin:10vh auto 5vh auto;
+        }
+
+        dl {
+            padding:0 12vw;
+
+            dt {
+                font-size:16px;
+
+                &::after {
+                    content:'：';
+                }
+
+                span {
+                    float:right;
+                }
+            }
+
+            dd {
+                height:30px;
+                margin:8px 0 30px 0;
+
+                input {
+                    .percent-box();
+
+                    background:#191919;
+                    padding:0 5px;
+
+                    color:white;
+                }
+            }
+        }
+
+        img.submit {
+            display:block;
+            width:50vw;
+            margin:5vh auto 1vh auto;
+        }
+
+        .tips {
+            text-align:center;
+        }
+    }
+
+    #guest input { border:1px solid #5c24e9;}
+    #anyone input { border:1px solid #f42afa;}
+}
+// ------------------------------------场景5结束-----------------------------------------
+
+// ------------------------------------场景6开始-----------------------------------------
+.scene06 {
+    background-image:url(../../img/scene06/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    .s1 {
+        margin-top:20vh;
+        img {width:100%;}
+    }
+}
+// ------------------------------------场景5结束-----------------------------------------
+
+// ------------------------------------场景3开始-----------------------------------------
+
+// ------------------------------------场景3结束-----------------------------------------
