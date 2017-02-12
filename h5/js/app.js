@@ -14,6 +14,7 @@
         //'hammer': '//cdn.bootcss.com/hammer.js/2.0.8/hammer.min',
         'hammer': 'hammer.min',
         'jqHammer': 'jquery.hammer',
+        'jqCookie': 'jquery.cookie',
         //"jquery": "jquery-1.10.2",
         //"jqueryMobile": "jquery.mobile-1.4.5.min"
 

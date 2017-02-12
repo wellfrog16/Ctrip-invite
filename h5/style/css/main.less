@@ -49,7 +49,7 @@ html, body {
     text-align:center;
 
     .bg {
-        background:url(../../img/main/loading.png);
+        background:url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/loading.png);
         background-repeat:no-repeat;
         background-size:contain;
         width:80px;
@@ -72,10 +72,38 @@ html, body {
 
 
 // ------------------------------------框架开始-----------------------------------------
+.video {
+    .percent-box();
+
+    position:absolute;
+    z-index:110;
+
+    display:none;
+
+    top:0;
+    left:0;
+
+    span {
+        position:absolute;
+        font-size:50px;
+        top:10px;
+        right:10px;
+    }
+
+    div {
+        .percent-box();
+    }
+}
+
+.share {
+    display:none;
+}
+
+
 .swiper-container {
     .percent-box();
 
-    background-image:url('../../img/main/bg.jpg');
+    background-image:url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/bg.jpg');
     background-size:cover;
     background-position:center;
 }
@@ -94,7 +122,7 @@ audio {
     width:30px;
     height:30px;
     background-size: 100%;
-    background-image: url('../../img/main/music.png');
+    background-image: url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/music.png');
     z-index: 100;
     animation: myrotate 5s linear 0s infinite normal;
 }
@@ -139,7 +167,7 @@ audio {
 
         left:0%;
 
-        background-image:url('../../img/building_2.png');
+        background-image:url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/building_2.png');
         background-size:33.33%;
         background-repeat:repeat-x;
         background-position:left bottom;
@@ -152,7 +180,7 @@ audio {
 
         left:0%;
 
-        background-image:url('../../img/building.png');
+        background-image:url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/building.png');
         background-size:33.33%;
         background-repeat:repeat-x;
         background-position:left bottom;
@@ -165,7 +193,7 @@ audio {
 
         left:0%;
 
-        background-image:url('../../img/road.png');
+        background-image:url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/road.png');
         background-size:33.33%;
         background-repeat:repeat-x;
         background-position:left bottom;
@@ -183,53 +211,36 @@ audio {
 
 // ------------------------------------场景1开始-----------------------------------------
 .scene01 {
-    background-image:url(../../img/scene01/float.png);
+    background-image:url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/float.png);
     background-repeat:no-repeat;
     background-size:cover;
 
+    >div {
+        text-align:center;
+    }
+
     .s1 {
-        width:640px;
-        height:648px;
-        top:200px;
-        left:0px;
-        position:absolute;
-        background-image:url(../../img/scene01/circle.png);
-        background-repeat:no-repeat;
-        background-size:cover;
+        position:relative;
+        z-index:1;
+        margin-top:10vh;
+
+        img {width:70%;}
     }
 
     .s2 {
-        width:466px;
-        height:350px;
-        top:125px;
-        left:100px;
-        position:absolute;
-        background-image:url(../../img/scene01/slogan.png);
-        background-repeat:no-repeat;
-        background-size:cover;
+        margin-top:-27vh;
+        img {width:100%;}
     }
 
-    .s3 {
-        width:629px;
-        height:261px;
-        top:565px;
-        left:5px;
-        position:absolute;
-        background-image:url(../../img/scene01/info.png);
-        background-repeat:no-repeat;
-        background-size:cover;
-
-        z-index:10;
-    }
 
     .hand {
       position: absolute;
       width: 56px;
       height: 81px;
-      background: url('../../img/scene01/finger.png') no-repeat;
+      background: url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/finger.png') no-repeat;
       background-size:cover;
       left: 30px;
-      top: 800px;
+      bottom: 10vh;
       animation: slidehand 1.5s infinite;
       display:none;
     }
@@ -251,7 +262,7 @@ audio {
 
 // ------------------------------------场景2开始-----------------------------------------
 .scene02 {
-    background-image:url(../../img/scene02/float.png);
+    background-image:url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/float.png);
     background-repeat:no-repeat;
     background-size:cover;
 
@@ -277,7 +288,7 @@ audio {
 
 // ------------------------------------场景3开始-----------------------------------------
 .scene03 {
-    background-image:url(../../img/scene03/float.png);
+    background-image:url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/float.png);
     background-repeat:no-repeat;
     background-size:cover;
 
@@ -310,7 +321,7 @@ audio {
 
 // ------------------------------------场景旅行家开始-----------------------------------------
 .scene-guest {
-    background-image:url(../../img/scene-guest/float.png);
+    background-image:url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/float.png);
     background-repeat:no-repeat;
     background-size:cover;
 
@@ -320,14 +331,14 @@ audio {
 
     .s1 {
         position:relative;
-        margin-top:10vh;
+        margin-top:15vh;
         z-index:10;
         img {width:60%;}
     }
 
     .s2 {
-        margin-top:-5vh;
-        img {width:80%;}
+        margin-top:-7vh;
+        img {width:90%;}
     }
 
     .s3 {
@@ -352,11 +363,30 @@ audio {
         }
     }
 }
+
+.guest0 {
+    .s2 {margin-top:-10vh;}
+}
+
+
+.guest1 {
+    .s1 {
+        img { width:80%;}
+    }
+
+    .s2 {margin-top:-7vh;}
+}
+
+.guest2 {
+    .s1 {
+        img { width:80%;}
+    }
+}
 // ------------------------------------场景旅行家结束-----------------------------------------
 
 // ------------------------------------场景4开始-----------------------------------------
 .scene04 {
-    background-image:url(../../img/scene04/float.png);
+    background-image:url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/float.png);
     background-repeat:no-repeat;
     background-size:cover;
 
@@ -365,7 +395,7 @@ audio {
     }
 
     .s1 {
-        margin-top:15vh;
+        margin-top:13vh;
         img {width:80%;}
     }
 
@@ -383,7 +413,7 @@ audio {
 
 // ------------------------------------场景5开始-----------------------------------------
 .scene05 {
-    background-image:url(../../img/scene05/float.png);
+    background-image:url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/float.png);
     background-repeat:no-repeat;
     background-size:cover;
 
@@ -408,6 +438,30 @@ audio {
         margin-top:2vh;
         img {width:50%;}
     }
+}
+// ------------------------------------场景5结束-----------------------------------------
+
+// ------------------------------------场景6开始-----------------------------------------
+.scene06 {
+    background-image:url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene06/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        margin-top:20vh;
+        img {width:100%;}
+    }
+
+    .s2 {
+        margin-top:-1vh;
+        img {width:50%;}
+    }
+}
+// ------------------------------------场景5结束-----------------------------------------
 
     .enroll {
         .percent-box();
@@ -445,6 +499,7 @@ audio {
 
                 span {
                     float:right;
+                    color:crimson;
                 }
             }
 
@@ -476,22 +531,3 @@ audio {
 
     #guest input { border:1px solid #5c24e9;}
     #anyone input { border:1px solid #f42afa;}
-}
-// ------------------------------------场景5结束-----------------------------------------
-
-// ------------------------------------场景6开始-----------------------------------------
-.scene06 {
-    background-image:url(../../img/scene06/float.png);
-    background-repeat:no-repeat;
-    background-size:cover;
-
-    .s1 {
-        margin-top:20vh;
-        img {width:100%;}
-    }
-}
-// ------------------------------------场景5结束-----------------------------------------
-
-// ------------------------------------场景3开始-----------------------------------------
-
-// ------------------------------------场景3结束-----------------------------------------
