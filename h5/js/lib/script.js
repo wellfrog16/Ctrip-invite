@@ -1,7 +1,6 @@
 // 剧本
 
-define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], function ($, resLoader, jqHammer, jqCookie, wx, swiper)
-{
+define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], function ($, resLoader, jqHammer, jqCookie, wx, swiper) {
     var self = {}
 
     self.open = function () {
@@ -9,6 +8,9 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
         //self.share();
 
         document.body.scrollTop = 0;
+
+        document.body.style.width = window.screen.width;
+        document.body.style.height = window.screen.height;
 
         // 修复坐标
         self.fixPosition();
@@ -21,7 +23,7 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
 
 
         //$('.video').hammer().on("tap", function (e) {
-        //    location.href = 'http://m.canon.com.cn/common/video/invoking/index.html?id=B3BF1A592FB707379C33DC5901307461';
+        //    location.href = 'https://m.canon.com.cn/common/video/invoking/index.html?id=B3BF1A592FB707379C33DC5901307461';
         //});
 
         $('#bgMusic').hammer().on("tap", function (e) {
@@ -126,7 +128,7 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
 
     // 坐标修正
     self.fixPosition = function () {
-        
+
         var scaleNum = document.documentElement.clientWidth / 640;
         var ele = $('.jsfix');
 
@@ -181,7 +183,7 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
 
         new resLoader({
             resources: [
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/loading.png'
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/loading.png'
             ],
             onStart: function (total) { },
             onProgress: function (current, total) { },
@@ -207,55 +209,55 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
         // app资源加载
         new resLoader({
             resources: [
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/music.mp3',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/music.mp3',
 
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/bg.jpg',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/logo.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/music.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/bg.jpg',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/logo.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/music.png',
 
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/float.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/guest1.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/guest2.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/guest3.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/like.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/title1.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/title2.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/title3.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/float.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/guest1.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/guest2.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/guest3.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/like.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/title1.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/title2.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/title3.png',
 
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/circle.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/finger.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/float.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/info.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/slogan.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/circle.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/finger.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/float.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/info.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/slogan.png',
 
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/circle.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/float.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/info.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/play.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/circle.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/float.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/info.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/play.png',
 
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/content.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/float.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/list.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/setting.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/title.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/content.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/float.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/list.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/setting.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/title.png',
 
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/circle.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/float.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/play.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/title.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/circle.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/float.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/play.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/title.png',
 
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/content.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/float.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/medal.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/signup1.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/signup2.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/submit1.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/submit2.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/title1.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/title2.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/content.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/float.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/medal.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/signup1.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/signup2.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/submit1.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/submit2.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/title1.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/title2.png',
 
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene06/float.png',
-                'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene06/result.png'
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene06/float.png',
+                'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene06/result.png'
             ],
             onStart: function (total) { },
             onProgress: function (current, total) {
@@ -358,11 +360,13 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
             $('.video').show();
             $('.video div').html('<iframe frameborder="0" width="100%" height="100%" src="https://v.qq.com/iframe/player.html?vid=u0374zkwh64&tiny=0&auto=1" allowfullscreen></iframe>');
             //$('.video iframe').attr('src', 'https://v.qq.com/iframe/player.html?vid=m03737rnjqw&tiny=0&auto=1');
+            $('#bgMusic')[0].pause();
         });
 
         $('.video span').hammer().on("tap", function (e) {
             $('.video').hide();
             $('.video iframe').attr('src', '');
+            $('#bgMusic')[0].play();
         });
 
         $('.scene04 .s2, .scene04 .s3').hammer().on("tap", function (e) {
@@ -370,6 +374,7 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
             $('.video').show();
             $('.video div').html('<iframe frameborder="0" width="100%" height="100%" src="https://v.qq.com/iframe/player.html?vid=m03737rnjqw&tiny=0&auto=1" allowfullscreen></iframe>');
             //$('.video iframe').attr('src', 'https://v.qq.com/iframe/player.html?vid=u0374zkwh64&tiny=0&auto=1');
+            $('#bgMusic')[0].pause();
         });
 
         $.removeCookie('guest0');
@@ -382,6 +387,10 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
             self.swiper.unlockSwipes();
             self.swiper.slideTo(0);
         });
+
+        $('.mask img').hammer().on("tap", function (e) {
+            $('.mask').hide();
+        });
     }
 
 
@@ -393,19 +402,20 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
 
     self.vote = function () {
 
-        if ($.cookie('guest0') == 'ok') { $('.guest0 img').eq(2).attr('src', 'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png'); }
-        if ($.cookie('guest1') == 'ok') { $('.guest1 img').eq(2).attr('src', 'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png'); }
-        if ($.cookie('guest2') == 'ok') { $('.guest2 img').eq(2).attr('src', 'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png'); }
-        if ($.cookie('guest3') == 'ok') { $('.guest3 img').eq(2).attr('src', 'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png'); }
+        if ($.cookie('guest0') == 'ok') { $('.guest0 img').eq(2).attr('src', 'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png'); }
+        if ($.cookie('guest1') == 'ok') { $('.guest1 img').eq(2).attr('src', 'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png'); }
+        if ($.cookie('guest2') == 'ok') { $('.guest2 img').eq(2).attr('src', 'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png'); }
+        if ($.cookie('guest3') == 'ok') { $('.guest3 img').eq(2).attr('src', 'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png'); }
 
         $('.guest0 span').hammer().on("tap", function (e) {
 
-            if ($.cookie('guest0') == 'ok') { alert('您已经为这位嘉宾投过票了'); return false; }
+            //console.log($('.guest0 img').eq(2).attr('src'));
+            if ($.cookie('guest0') == 'ok' || $('.guest0 img').eq(2).attr('src').indexOf('liked') != -1) { $('.mask').show();; return false; }
 
             $.post('https://www.tron-m.com/ctf/api/thumbup.do?id=4', function (json) {
                 if (json.code == 1) {
                     $('.guest0 span').text(json.result.thumb);
-                    $('.guest0 img').eq(2).attr('src', 'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png');
+                    $('.guest0 img').eq(2).attr('src', 'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png');
 
                     $.cookie('guest0', 'ok', { expires: 7 });
                 }
@@ -414,34 +424,34 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
 
         $('.guest1 span').hammer().on("tap", function (e) {
 
-            if ($.cookie('guest1') == 'ok') { alert('您已经为这位嘉宾投过票了'); return false;}
+            if ($.cookie('guest1') == 'ok' || $('.guest1 img').eq(2).attr('src').indexOf('liked') != -1) { $('.mask').show();; return false; }
 
             $.post('https://www.tron-m.com/ctf/api/thumbup.do?id=1', function (json) {
                 if (json.code == 1) {
                     $('.guest1 span').text(json.result.thumb);
-                    $('.guest1 img').eq(2).attr('src', 'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png');
+                    $('.guest1 img').eq(2).attr('src', 'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png');
                     $.cookie('guest1', 'ok', { expires: 7 });
                 }
             }, 'json');
         });
         $('.guest2 span').hammer().on("tap", function (e) {
-            if ($.cookie('guest2') == 'ok') { alert('您已经为这位嘉宾投过票了'); return false; }
+            if ($.cookie('guest2') == 'ok' || $('.guest2 img').eq(2).attr('src').indexOf('liked') != -1) { $('.mask').show();; return false; }
 
             $.post('https://www.tron-m.com/ctf/api/thumbup.do?id=2', function (json) {
                 if (json.code == 1) {
                     $('.guest2 span').text(json.result.thumb)
-                    $('.guest2 img').eq(2).attr('src', 'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png');
+                    $('.guest2 img').eq(2).attr('src', 'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png');
                     $.cookie('guest2', 'ok', { expires: 7 });
                 }
             }, 'json');
         });
         $('.guest3 span').hammer().on("tap", function (e) {
-            if ($.cookie('guest3') == 'ok') { alert('您已经为这位嘉宾投过票了'); return false; }
+            if ($.cookie('guest3') == 'ok' || $('.guest3 img').eq(2).attr('src').indexOf('liked') != -1) { $('.mask').show();; return false; }
 
             $.post('https://www.tron-m.com/ctf/api/thumbup.do?id=3', function (json) {
                 if (json.code == 1) {
                     $('.guest3 span').text(json.result.thumb)
-                    $('.guest3 img').eq(2).attr('src', 'http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png');
+                    $('.guest3 img').eq(2).attr('src', 'https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/liked.png');
                     $.cookie('guest3', 'ok', { expires: 7 });
                 }
             }, 'json');
@@ -617,15 +627,14 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
 
     // 微信分享
     self.share = function () {
-        var host = '';
-        var project = '';
 
         $.ajax({
             type: 'post',
-            url: 'WeixinJSSDKServlet?type=getWxConfig',
-            data: { url: window.location.href },
+            url: 'https://www.tron-m.com/wx/jssdk',
+            data: { m: "getWxConfig", url: window.location.href },
             dataType: 'json',
-            success: function (args) {
+            success: function (json) {
+                args = json.result;
                 wx.config({
                     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                     appId: args.appId, // 必填，公众号的唯一标识
@@ -637,9 +646,9 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
 
                 wx.ready(function () {
                     var url = document.location.href,
-                        title = '',
-                        desc = '',
-                        imgUrl = 'http://' + host + '/img/sharecover1.jpg'
+                        title = '2017·CTF中国旅行者大会',
+                        desc = '和周笔畅一起，遇见不一样的世界，遇见另一个自己！',
+                        imgUrl = 'https://www.tron-m.com/ctf/img/cover.jpg'
 
                     wx.onMenuShareTimeline({
                         title: title, // 分享标题
@@ -714,10 +723,10 @@ define(['jquery', 'resLoader', 'jqHammer', 'jqCookie', 'weixin', 'swiper'], func
                 });
             }
         });
-    }
-    
+    }();
+
     return self;
-    
+
 });
 
 

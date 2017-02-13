@@ -33,6 +33,7 @@ ol {
     color: #fff;
     text-align: center;
     line-height: 100vh;
+    display: none;
   }
 }
 html,
@@ -54,7 +55,7 @@ body {
   text-align: center;
 }
 .loading .bg {
-  background: url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/loading.png);
+  background: url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/loading.png);
   background-repeat: no-repeat;
   background-size: contain;
   width: 80px;
@@ -92,10 +93,25 @@ body {
 .share {
   display: none;
 }
+.mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 120;
+  display: none;
+  top: 0;
+  left: 0;
+  background: rgba(51, 51, 51, 0.9);
+  text-align: center;
+}
+.mask img {
+  width: 80%;
+  margin-top: 40vh;
+}
 .swiper-container {
   width: 100%;
   height: 100%;
-  background-image: url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/bg.jpg');
+  background-image: url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/bg.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -109,7 +125,7 @@ audio {
   width: 30px;
   height: 30px;
   background-size: 100%;
-  background-image: url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/music.png');
+  background-image: url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/music.png');
   z-index: 100;
   animation: myrotate 5s linear 0s infinite normal;
 }
@@ -157,7 +173,7 @@ audio {
   height: 30vh;
   bottom: 10px;
   left: 0%;
-  background-image: url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/building_2.png');
+  background-image: url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/building_2.png');
   background-size: 33.33%;
   background-repeat: repeat-x;
   background-position: left bottom;
@@ -167,7 +183,7 @@ audio {
   height: 30vh;
   bottom: 15px;
   left: 0%;
-  background-image: url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/building.png');
+  background-image: url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/building.png');
   background-size: 33.33%;
   background-repeat: repeat-x;
   background-position: left bottom;
@@ -177,7 +193,7 @@ audio {
   height: 6vh;
   bottom: 0;
   left: 0%;
-  background-image: url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/road.png');
+  background-image: url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/road.png');
   background-size: 33.33%;
   background-repeat: repeat-x;
   background-position: left bottom;
@@ -190,7 +206,7 @@ audio {
   width: 100%;
 }
 .scene01 {
-  background-image: url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/float.png);
+  background-image: url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/float.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -215,7 +231,7 @@ audio {
   position: absolute;
   width: 56px;
   height: 81px;
-  background: url('http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/finger.png') no-repeat;
+  background: url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/finger.png') no-repeat;
   background-size: cover;
   left: 30px;
   bottom: 10vh;
@@ -233,7 +249,7 @@ audio {
   }
 }
 .scene02 {
-  background-image: url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/float.png);
+  background-image: url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/float.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -256,7 +272,7 @@ audio {
   width: 40%;
 }
 .scene03 {
-  background-image: url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/float.png);
+  background-image: url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/float.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -288,7 +304,7 @@ audio {
   width: 80%;
 }
 .scene-guest {
-  background-image: url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/float.png);
+  background-image: url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/float.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -340,7 +356,7 @@ audio {
   width: 80%;
 }
 .scene04 {
-  background-image: url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/float.png);
+  background-image: url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/float.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -366,7 +382,7 @@ audio {
   width: 50%;
 }
 .scene05 {
-  background-image: url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/float.png);
+  background-image: url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/float.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -396,7 +412,7 @@ audio {
   width: 50%;
 }
 .scene06 {
-  background-image: url(http://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene06/float.png);
+  background-image: url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene06/float.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
