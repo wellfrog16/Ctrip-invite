@@ -1,0 +1,555 @@
+﻿@import 'common.less';
+
+@media screen and (orientation: portrait) {
+    /*竖屏 css*/
+    .block {
+        display: none;
+    }
+}
+
+@media screen and (orientation: landscape) {
+    /*横屏 css*/
+    .block {
+        z-index: 9999;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #333;
+        color: #fff;
+        text-align: center;
+        line-height: 100vh;
+        display:none;
+    }
+}
+
+// ------------------------------------初始化开始-----------------------------------------
+html, body {
+    width:100%;
+    height:100%;
+
+    color:#fff;
+    font-family: 'Miscrosoft Yahei', '微软雅黑';
+    font-size:14px;
+
+    overflow:hidden;
+}
+
+
+// ------------------------------------初始化结束-----------------------------------------
+
+
+// ------------------------------------loading开始-----------------------------------------
+.loading {
+    .percent-box();
+
+    position:absolute;
+    z-index:110;
+    background: #333;
+
+    color:white;
+    text-align:center;
+
+    .bg {
+        background:url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/loading.png);
+        background-repeat:no-repeat;
+        background-size:contain;
+        width:80px;
+        height:80px;
+        margin:40vh auto;
+        line-height:100px;
+        animation: myrotate 2s linear 0s infinite normal;
+    }
+
+    .percent {
+        position:absolute;
+        top:40vh;
+        width:100%;
+
+        text-align:center;
+        margin-top:30px;
+    }
+}
+// ------------------------------------loading结束-----------------------------------------
+
+
+// ------------------------------------框架开始-----------------------------------------
+.video {
+    .percent-box();
+
+    position:absolute;
+    z-index:110;
+
+    display:none;
+
+    top:0;
+    left:0;
+
+    span {
+        position:absolute;
+        font-size:50px;
+        top:10px;
+        right:10px;
+    }
+
+    div {
+        .percent-box();
+    }
+}
+
+.share {
+    display:none;
+}
+
+
+.mask {
+    .percent-box();
+
+    position:absolute;
+    z-index:120;
+
+    display:none;
+
+    top:0;
+    left:0;
+
+    background: rgba(51, 51, 51, 0.9); 
+    text-align:center;
+
+    img {
+        width:80%;
+        margin-top:40vh;
+    }
+}
+
+
+.swiper-container {
+    .percent-box();
+
+    background-image:url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/bg.jpg');
+    background-size:cover;
+    background-position:center;
+}
+
+
+audio {
+    display:none;
+}
+
+
+// 背景音乐按钮
+.btn-bgm {
+    position:absolute; 
+    top:16px;
+    right:16px;
+    width:30px;
+    height:30px;
+    background-size: 100%;
+    background-image: url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/main/music.png');
+    z-index: 100;
+    animation: myrotate 5s linear 0s infinite normal;
+}
+
+.btn-bgm-pause {
+    background-position: 0px -30px;
+    animation: none;
+}
+
+@keyframes myrotate {
+    0% { transform:rotate(0deg);}
+    25% {transform:rotate(-90deg);}	
+    50% { transform:rotate(-180deg);}
+    75% { transform:rotate(-270deg);}
+    100% { transform:rotate(-360deg);}
+}
+
+// logo
+.logo {
+    position:absolute; 
+    top:18px;
+    left:0;
+    width:100%;
+    text-align:center;
+    line-height:38px;
+
+    img { width:50%; }
+}
+
+// 底部视差
+.dynamic {
+    .percent-box();
+
+    >div {
+        position:absolute;
+    }
+
+    .building1 {
+        width:300%;
+        height:30vh;
+        bottom:10px;
+
+        left:0%;
+
+        background-image:url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/building_2.png');
+        background-size:33.33%;
+        background-repeat:repeat-x;
+        background-position:left bottom;
+    }
+
+    .building2 {
+        width:300%;
+        height:30vh;
+        bottom:15px;
+
+        left:0%;
+
+        background-image:url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/building.png');
+        background-size:33.33%;
+        background-repeat:repeat-x;
+        background-position:left bottom;
+    }
+
+    .road {
+        width:300%;
+        height:6vh;
+        bottom:0;
+
+        left:0%;
+
+        background-image:url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/road.png');
+        background-size:33.33%;
+        background-repeat:repeat-x;
+        background-position:left bottom;
+    }
+
+    .bus {
+        width:30%;
+        bottom:1vh;
+
+        img { width:100%;}
+    }
+}
+
+// ------------------------------------框架开始-----------------------------------------
+
+// ------------------------------------场景1开始-----------------------------------------
+.scene01 {
+    background-image:url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        position:relative;
+        z-index:1;
+        margin-top:10vh;
+
+        img {width:70%;}
+    }
+
+    .s2 {
+        margin-top:-27vh;
+        img {width:100%;}
+    }
+
+
+    .hand {
+      position: absolute;
+      width: 56px;
+      height: 81px;
+      background: url('https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene01/finger.png') no-repeat;
+      background-size:cover;
+      left: 30px;
+      bottom: 10vh;
+      animation: slidehand 1.5s infinite;
+      display:none;
+    }
+
+
+}
+
+@keyframes slidehand {
+    from {
+        left: 80vw;
+        opacity: 0.5;
+    }
+    to {
+        left: 10vw;
+        opacity: 1;
+    }
+}
+// ------------------------------------场景1结束-----------------------------------------
+
+// ------------------------------------场景2开始-----------------------------------------
+.scene02 {
+    background-image:url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene02/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        margin-top:15vh;
+        img {width:70%;}
+    }
+
+    .s2 {
+        margin-top:-4vh;
+        img {width:80%;}
+    }
+
+    .s3 {
+        img {width:40%;}
+    }
+}
+// ------------------------------------场景2结束-----------------------------------------
+
+// ------------------------------------场景3开始-----------------------------------------
+.scene03 {
+    background-image:url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene03/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        margin-top:15vh;
+        img {width:80%;}
+    }
+
+    .s2 {
+        margin-top:2vh;
+        img {width:80%;}
+    }
+
+    .s3 {
+        margin-top:2vh;
+        img {width:50%;}
+    }
+
+    .s4 {
+        margin-top:1vh;
+        img {width:80%;}
+    }
+}
+// ------------------------------------场景3结束-----------------------------------------
+
+
+// ------------------------------------场景旅行家开始-----------------------------------------
+.scene-guest {
+    background-image:url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene-guest/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        position:relative;
+        margin-top:15vh;
+        z-index:10;
+        img {width:60%;}
+    }
+
+    .s2 {
+        margin-top:-7vh;
+        img {width:90%;}
+    }
+
+    .s3 {
+        margin-top:0vh;
+        position:relative;
+
+        img {width:50%;}
+
+        span {
+            width:100%;
+            height:100%;
+            line-height:6.5vh;
+
+            color:aqua;
+            font-size:1.2em;
+
+            position:absolute;
+            left:0;
+            top:0;
+
+            text-align:center;
+        }
+    }
+}
+
+.guest0 {
+    .s2 {margin-top:-10vh;}
+}
+
+
+.guest1 {
+    .s1 {
+        img { width:80%;}
+    }
+
+    .s2 {margin-top:-7vh;}
+}
+
+.guest2 {
+    .s1 {
+        img { width:80%;}
+    }
+}
+// ------------------------------------场景旅行家结束-----------------------------------------
+
+// ------------------------------------场景4开始-----------------------------------------
+.scene04 {
+    background-image:url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene04/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        margin-top:13vh;
+        img {width:80%;}
+    }
+
+    .s2 {
+        margin-top:-3vh;
+        img {width:95%;}
+    }
+
+    .s3 {
+        margin-top:-2vh;
+        img {width:50%;}
+    }
+}
+// ------------------------------------场景4结束-----------------------------------------
+
+// ------------------------------------场景5开始-----------------------------------------
+.scene05 {
+    background-image:url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene05/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        margin-top:5vh;
+        position:relative;
+        z-index:1;
+
+        img {width:80%;}
+    }
+
+    .s2 {
+        margin-top:-4.5vh;
+        img {width:80%;}
+    }
+
+    .s3, .s4 {
+        margin-top:2vh;
+        img {width:50%;}
+    }
+}
+// ------------------------------------场景5结束-----------------------------------------
+
+// ------------------------------------场景6开始-----------------------------------------
+.scene06 {
+    background-image:url(https://tronm.oss-cn-shanghai.aliyuncs.com/ctrip/aa/scene06/float.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+    >div {
+        text-align:center;
+    }
+
+    .s1 {
+        margin-top:20vh;
+        img {width:100%;}
+    }
+
+    .s2 {
+        margin-top:-1vh;
+        img {width:50%;}
+    }
+}
+// ------------------------------------场景5结束-----------------------------------------
+
+    .enroll {
+        .percent-box();
+        text-align:left;
+
+        position:absolute;
+        top:0;
+        left:0;
+        background:#191919;
+        z-index:2;
+        display:none;
+
+        .close {
+            float:right;
+            font-size:30px;
+            margin-right:10px;
+        }
+
+        img.title {
+            clear:both;
+            display:block;
+            width:60vw;
+            margin:10vh auto 5vh auto;
+        }
+
+        dl {
+            padding:0 12vw;
+
+            dt {
+                font-size:16px;
+
+                &::after {
+                    content:'：';
+                }
+
+                span {
+                    float:right;
+                    color:crimson;
+                }
+            }
+
+            dd {
+                height:30px;
+                margin:8px 0 30px 0;
+
+                input {
+                    .percent-box();
+
+                    background:#191919;
+                    padding:0 5px;
+
+                    color:white;
+                }
+            }
+        }
+
+        img.submit {
+            display:block;
+            width:50vw;
+            margin:5vh auto 1vh auto;
+        }
+
+        .tips {
+            text-align:center;
+        }
+    }
+
+    #guest input { border:1px solid #5c24e9;}
+    #anyone input { border:1px solid #f42afa;}
